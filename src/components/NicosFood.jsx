@@ -14,8 +14,15 @@ class NicosFood extends Component {
         }
     }
     render() {
+        const paperStyle = {
+            "display": "flex",
+            "flexDirection": "column",
+            "width": "100%",
+            "maxWidth": 400,
+            "bgcolor": "background.paper"
+        }
         return(
-            <Paper sx={{ display: "flex", flexDirection: "column", width: '100%', maxWidth: 400, bgcolor: 'background.paper' }}>
+            <Paper style={paperStyle}>
                 <EntreeChoice data={this.state.sum}/><br/>
                 <MeatChoice  /><br/>
                 <SalsaChoice  /><br/>
