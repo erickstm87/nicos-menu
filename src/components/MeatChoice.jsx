@@ -4,7 +4,6 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
-import FormGroup from '@mui/material/FormGroup'
 
 import db from '../firebase/init'
 import { collection, getDocs } from 'firebase/firestore'
@@ -36,7 +35,6 @@ class MeatChoice extends Component {
                 name="radio-buttons-group"
             ></RadioGroup>
                 {this.state.meatEntries.map((element, index) => (
-                    <FormGroup>
                     <FormControlLabel onChange = {(e)=>handleChange(e)}
                         sx={{"padding-left": "30px"}}
                         key={index} 
@@ -45,7 +43,6 @@ class MeatChoice extends Component {
                         label={element.animal} 
                         checked={this.state.eventSelected === element.animal}
                     />
-                    </FormGroup>
                 ))}
             </FormControl>
         )

@@ -31,11 +31,14 @@ class EntreeChoice extends Component {
             "display": "flex",
             "flexDirection": "row"
         }
+        const formStyle = {
+            "paddingLeft": "30px"
+        }
         const handleChange = ((e) => {
             this.setState({eventSelected: e.target.value})
         })
-        const hanldePriceChange = ((e) => {
-            this.setState({sum: e.target.value}, () => {
+        const handlePriceChange = ((price) => {
+            this.setState({sum: price}, () => {
                 console.log("here is your value: ", this.state.sum);
             })
         })
@@ -47,16 +50,16 @@ class EntreeChoice extends Component {
                 name="radio-buttons-group"
             ></RadioGroup>
                 {this.state.entreeEntries.map((element, index) => (
-                    <div style={card}>
+                    <div onClick= {() => handlePriceChange(element.price)} key={index} style={card}>
                     <FormControlLabel onChange = {(e)=>handleChange(e)}
-                        sx={{paddingLeft: "30px"}}
+                        style={formStyle}
                         key={index} 
                         value={element.name}
                         control={<Radio />} 
                         label={element.name} 
                         checked={this.state.eventSelected === element.name}
                     />
-                    <ul onClick= {(e) => hanldePriceChange(e)}>{element.price}</ul>
+                    <ul>{element.price}</ul>
                        
                     </div>
                 ))}
