@@ -15,7 +15,12 @@ class DrinkChoice extends Component {
             price: 1.25
         }
     }
+
     render() {
+        const handleChange = ((e) => {
+            const deselect = !this.state.drinkSelected
+            this.setState({drinkSelected: deselect})
+        })
         const divStyle = {
             "display": "flex",
             "flexDirection": "row"
@@ -28,21 +33,21 @@ class DrinkChoice extends Component {
                 name="radio-buttons-group"
             ></RadioGroup>
                     <div style={divStyle}>
-                        <FormControlLabel
+                        <FormControlLabel onChange = {()=>handleChange()}
                             sx={{"padding-left": "30px"}}
                             value={"yes"}
                             control={<Radio />} 
                             label={"yes"} 
-                            checked={this.state.drinkSelected === "yes"}
+                            checked={this.state.drinkSelected === true}
                         />
                         <ul>{this.state.price}</ul>
                     </div>
-                    <FormControlLabel 
+                    <FormControlLabel onChange = {()=>handleChange()}
                         sx={{"padding-left": "30px"}}
                         value={"no"} 
                         control={<Radio />} 
                         label={"no"} 
-                        checked={this.state.eventSelected === "no"}
+                        checked={this.state.drinkSelected === false}
                     />
                     
                 
