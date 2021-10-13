@@ -1,19 +1,17 @@
 import React, {Component} from 'react';
 import Paper from '@mui/material/Paper';
+import Button from '@mui/material/Button';
 
 import SalsaChoice from './SalsaChoice'
 import MeatChoice from './MeatChoice'
 import EntreeChoice from './EntreeChoice'
 import DrinkChoice from './DrinkChoice'
 
-class NicosFood extends Component {
-    constructor(props) {
-        super(props)
-        this.state ={
-            data: 0
-        }
-    }
+class NicosFood extends Component {   
     render() {
+        const onButtonClick = (() => {
+            document.dispatchEvent(new CustomEvent('orderSubmitted', { detail: 'orderSubmitted' }))
+        })
         const paperStyle = {
             "display": "flex",
             "flexDirection": "column",
@@ -23,10 +21,11 @@ class NicosFood extends Component {
         }
         return(
             <Paper style={paperStyle}>
-                <EntreeChoice data={this.state.sum}/><br/>
+                <EntreeChoice /><br/>
                 <MeatChoice  /><br/>
                 <SalsaChoice  /><br/>
                 <DrinkChoice />
+                <Button onClick={onButtonClick} variant="contained">Submit</Button>
             </Paper>
         )
     }

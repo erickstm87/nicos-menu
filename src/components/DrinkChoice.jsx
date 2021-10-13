@@ -12,12 +12,20 @@ class DrinkChoice extends Component {
             drinkSelected: false,
             price: 1.25
         }
+ 
     }
 
     render() {
-        const handleChange = ((e) => {
-            const deselect = !this.state.drinkSelected
-            this.setState({drinkSelected: deselect})
+        const handleChange = (() => {
+            this.setState(state => ({ drinkSelected: !state.drinkSelected }), () => { 
+                if(this.state.drinkSelected) {
+                    document.dispatchEvent(new CustomEvent('drinkSelected', { detail: this.state.drinkSelected }))
+                }
+                else {
+                    document.dispatchEvent(new CustomEvent('drinkDeSelected', { detail: this.state.drinkSelected }))
+                }
+             
+            });
         })
         const divStyle = {
             "display": "flex",
@@ -31,21 +39,21 @@ class DrinkChoice extends Component {
                 name="radio-buttons-group"
             ></RadioGroup>
                     <div style={divStyle}>
-                        <FormControlLabel onChange = {()=>handleChange()}
+                        <FormControlLabel id="elem" onChange = {()=>handleChange()}
                             sx={{"padding-left": "30px"}}
                             value={"yes"}
                             control={<Radio />} 
                             label={"yes"} 
-                            checked={this.state.drinkSelected === true}
+                            checked={this.state.drinkSelected}
                         />
                         <ul>{this.state.price}</ul>
                     </div>
-                    <FormControlLabel onChange = {()=>handleChange()}
+                    <FormControlLabel id="elem" onChange = {()=>handleChange()}
                         sx={{"padding-left": "30px"}}
                         value={"no"} 
                         control={<Radio />} 
                         label={"no"} 
-                        checked={this.state.drinkSelected === false}
+                        checked={!this.state.drinkSelected}
                     />
                     
                 
