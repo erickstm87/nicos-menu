@@ -50,7 +50,8 @@ class EntreeChoice extends Component {
             this.setState({eventSelected: e.target.value})
         })
         const handlePriceChange = ((price) => {
-            this.setState({sum: price})
+            const newSum = +this.state.sum + +price
+            this.setState({sum: newSum})
         })
         
         return(
