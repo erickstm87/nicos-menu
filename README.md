@@ -7,12 +7,9 @@ This Project can be run by following the steps listed below
 3. `npm i`
 4. `npm run start`
 
-#General Note. 
-    - I may have gone a little overboard and created a Firebase Data store to hold the menu data. I will include a Screenshot of what the DB looks like so the developer can get an idea of what I was pulling from.
-    - Very unfortunate but I could not get testing done first. My method would have been to set up a snapshot.
-    - Please let me know if you have any questions. I look forward to hearing from you.
+# General Note. 
+    - I may have gone a little overboard and created a Firebase Data store to hold the menu data. I will include a Screenshot in the email of what the DB looks like so the developer can get an idea of what I was pulling from.
+    - Very unfortunate but I could not get testing done. My method would have been to set up a snapshot.
     - I also didn't have the time to make sure all radio buttons were fulfilled before submitting the order. 
     - I have brought in Redux on projects before but felt this would have been too much in the time alloted so I settled for custom events. A little hacky but would work on such a small scale app
-
-
-DB View
+    - Please let me know if you have any questions. I look forward to hearing from you.
