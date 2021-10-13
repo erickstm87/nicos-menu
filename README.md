@@ -13,3 +13,6 @@ This Project can be run by following the steps listed below
     - Please let me know if you have any questions. I look forward to hearing from you.
     - I also didn't have the time to make sure all radio buttons were fulfilled before submitting the order. 
     - I have brought in Redux on projects before but felt this would have been too much in the time alloted so I settled for custom events. A little hacky but would work on such a small scale app
+
+
+DB View

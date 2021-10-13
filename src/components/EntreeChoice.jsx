@@ -14,7 +14,8 @@ class EntreeChoice extends Component {
         this.state = {
             entreeEntries: [],
             eventSelected: '',
-            sum: 0
+            sum: 0,
+            drink: 0
         }      
     }
 
@@ -26,10 +27,12 @@ class EntreeChoice extends Component {
         })
        
         document.addEventListener("drinkSelected", (event) => {
+            this.setState({drink: 1.25})
             this.setState({sum: +this.state.sum + 1.25})           
         })
 
         document.addEventListener("drinkDeSelected", (event) => {
+            this.setState({drink: 0})
             this.setState({sum: +this.state.sum - 1.25})           
         })
 
@@ -50,7 +53,7 @@ class EntreeChoice extends Component {
             this.setState({eventSelected: e.target.value})
         })
         const handlePriceChange = ((price) => {
-            const newSum = +this.state.sum + +price
+            const newSum = +price + +this.state.drink
             this.setState({sum: newSum})
         })
         
